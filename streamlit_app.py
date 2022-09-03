@@ -64,12 +64,12 @@ if streamlit.button('Get Fruit Load List'):
    
 
 # import snowflake.connector
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * FROM fruit_load_list")
-my_data_rows = my_cur.fetchall()
-streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_rows)
+# my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+# my_cur = my_cnx.cursor()
+# my_cur.execute("SELECT * FROM fruit_load_list")
+# my_data_rows = my_cur.fetchall()
+# streamlit.header("The fruit load list contains:")
+# streamlit.dataframe(my_data_rows)
 
 #ALlow the end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
@@ -85,7 +85,7 @@ if streamlit.button('Add a Fruit to the List'):
 
 
 #This will not work correctly. But just go with it for now
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+# my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
 #Don't run anything past here while we troubleshoot
 streamlit.stop()
